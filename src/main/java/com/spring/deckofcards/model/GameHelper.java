@@ -7,6 +7,9 @@ import com.spring.deckofcards.util.IntegerComparator;
 
 import java.util.*;
 
+/**
+ * Class to hold computations
+ */
 public class GameHelper {
 
     private GameHelper() {
@@ -44,9 +47,12 @@ public class GameHelper {
      * @return
      */
     public LinkedHashMap<Integer, Integer> sortPlayersByScoreDescending(Map<Integer, Integer> scoreBoard) {
+        // Ensure all entries are unique
         Set<Map.Entry<Integer, Integer>> entries = scoreBoard.entrySet();
         List<Map.Entry<Integer, Integer>> listOfEntries = new ArrayList<Map.Entry<Integer, Integer>>(entries);
+        // Sort using the defined comparator (p2.points - p1.points)
         listOfEntries.sort(new IntegerComparator());
+        // Using linkedhashmap because it keeps the order of keys in which they are inserted
         LinkedHashMap<Integer, Integer> sortedByScore = new LinkedHashMap<Integer, Integer>(listOfEntries.size());
 
         for (Map.Entry<Integer, Integer> entry : listOfEntries) {
@@ -56,40 +62,12 @@ public class GameHelper {
     }
 
     /**
-     * Calculates the remaining number of cards from each suit in a deck.
-     *
-     * @param deck
-     * @return
-     */
-    @Deprecated
-    public Map<Suit, Integer> calculateRemainingCardsPerSuit(Stack<Card> deck) {
-        //Refactor
-        int spades = 0, hearts = 0, clubs = 0, diamonds = 0;
-
-        for (Card card : deck) {
-            switch (card.getSuit()) {
-                case CLUBS -> clubs++;
-                case HEARTS -> hearts++;
-                case SPADES -> spades++;
-                case DIAMONDS -> diamonds++;
-            }
-        }
-
-        Map<Suit, Integer> suitCount = new HashMap<>();
-        suitCount.put(Suit.CLUBS, clubs);
-        suitCount.put(Suit.HEARTS, hearts);
-        suitCount.put(Suit.SPADES, spades);
-        suitCount.put(Suit.DIAMONDS, diamonds);
-
-        return suitCount;
-    }
-
-    /**
      * Returns a list of the counts of all the cards in the deck
      * @param currentDeck
      * @return
      */
     public LinkedHashMap<String, Integer> calculateAllCardCount(Stack<Card> currentDeck) {
+        // Using linkedhashmap because it keeps the order of keys in which they are inserted
         LinkedHashMap<String,Integer> counts = new LinkedHashMap<>();
         Deck deck = new Deck(false);
 
