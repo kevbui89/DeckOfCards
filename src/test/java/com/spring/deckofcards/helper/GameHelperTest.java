@@ -1,6 +1,5 @@
 package com.spring.deckofcards.helper;
 
-import com.spring.deckofcards.model.GameHelper;
 import com.spring.deckofcards.model.deck.Card;
 import com.spring.deckofcards.model.deck.Deck;
 import com.spring.deckofcards.model.deck.Rank;

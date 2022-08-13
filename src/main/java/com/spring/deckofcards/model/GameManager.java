@@ -1,11 +1,9 @@
 package com.spring.deckofcards.model;
 
+import com.spring.deckofcards.helper.GameHelper;
 import com.spring.deckofcards.model.deck.Card;
-import com.spring.deckofcards.model.deck.Deck;
 import com.spring.deckofcards.model.deck.Suit;
-import com.spring.deckofcards.model.entities.Game;
 import com.spring.deckofcards.util.DeckUtil;
-import com.spring.deckofcards.util.IntegerComparator;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
