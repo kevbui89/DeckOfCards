@@ -1,8 +1,8 @@
 package com.spring.deckofcards.service.impl;
 
 import com.spring.deckofcards.DTO.PlayerDTO;
-import com.spring.deckofcards.model.Game;
-import com.spring.deckofcards.model.Player;
+import com.spring.deckofcards.model.entities.Game;
+import com.spring.deckofcards.model.entities.Player;
 import com.spring.deckofcards.repository.GameRepository;
 import com.spring.deckofcards.repository.PlayerRepository;
 import com.spring.deckofcards.service.PlayerService;

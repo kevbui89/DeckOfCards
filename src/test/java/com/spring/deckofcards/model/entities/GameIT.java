@@ -1,5 +1,6 @@
-package com.spring.deckofcards.model;
+package com.spring.deckofcards.model.entities;
 
+import com.spring.deckofcards.model.entities.Game;
 import com.spring.deckofcards.service.impl.GameServiceImpl;
 import org.junit.Before;
 import org.junit.Test;

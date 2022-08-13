@@ -1,4 +1,4 @@
-package com.spring.deckofcards.model;
+package com.spring.deckofcards.model.entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;

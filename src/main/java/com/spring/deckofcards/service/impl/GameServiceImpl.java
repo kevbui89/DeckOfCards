@@ -1,6 +1,6 @@
 package com.spring.deckofcards.service.impl;
 
-import com.spring.deckofcards.model.Game;
+import com.spring.deckofcards.model.entities.Game;
 import com.spring.deckofcards.repository.GameRepository;
 import com.spring.deckofcards.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;

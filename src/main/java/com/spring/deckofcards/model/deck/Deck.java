@@ -45,15 +45,4 @@ public class Deck {
     public boolean contains(Card card) {
         return this.deck.contains(card);
     }
-
-    //TODO
-    // IS THIS NEEDED? OR SHOULD THE GAME HANDLE THIS?
-    /**
-     * Deals a card from the deck
-     *
-     * @return The last card in the deck
-     */
-    public Optional<Card> deal() {
-        return this.deck.isEmpty() ? Optional.empty() : Optional.ofNullable(this.deck.pop());
-    }
 }

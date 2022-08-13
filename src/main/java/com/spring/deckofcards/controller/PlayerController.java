@@ -1,7 +1,7 @@
 package com.spring.deckofcards.controller;
 
 import com.spring.deckofcards.DTO.PlayerDTO;
-import com.spring.deckofcards.model.Player;
+import com.spring.deckofcards.model.entities.Player;
 import com.spring.deckofcards.service.PlayerService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;

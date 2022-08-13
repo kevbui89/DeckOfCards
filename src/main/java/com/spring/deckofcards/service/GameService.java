@@ -1,6 +1,6 @@
 package com.spring.deckofcards.service;
 
-import com.spring.deckofcards.model.Game;
+import com.spring.deckofcards.model.entities.Game;
 
 import java.util.List;
 

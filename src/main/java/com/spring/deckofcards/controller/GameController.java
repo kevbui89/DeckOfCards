@@ -1,6 +1,6 @@
 package com.spring.deckofcards.controller;
 
-import com.spring.deckofcards.model.Game;
+import com.spring.deckofcards.model.entities.Game;
 import com.spring.deckofcards.service.GameService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;

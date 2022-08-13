@@ -1,7 +1,7 @@
 package com.spring.deckofcards.service;
 
 import com.spring.deckofcards.DTO.PlayerDTO;
-import com.spring.deckofcards.model.Player;
+import com.spring.deckofcards.model.entities.Player;
 
 import java.util.List;
 

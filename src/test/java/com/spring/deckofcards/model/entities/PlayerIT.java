@@ -1,6 +1,7 @@
-package com.spring.deckofcards.model;
+package com.spring.deckofcards.model.entities;
 
 import com.spring.deckofcards.DTO.PlayerDTO;
+import com.spring.deckofcards.model.entities.Player;
 import com.spring.deckofcards.service.impl.PlayerServiceImpl;
 import org.junit.Before;
 import org.junit.Test;

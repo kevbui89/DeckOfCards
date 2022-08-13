@@ -1,7 +1,7 @@
 package com.spring.deckofcards;
 
 import com.spring.deckofcards.DTO.PlayerDTO;
-import com.spring.deckofcards.model.Game;
+import com.spring.deckofcards.model.entities.Game;
 import com.spring.deckofcards.service.GameService;
 import com.spring.deckofcards.service.PlayerService;
 import lombok.extern.slf4j.Slf4j;
