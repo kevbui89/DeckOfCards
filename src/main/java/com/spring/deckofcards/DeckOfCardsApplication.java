@@ -24,8 +24,8 @@ public class DeckOfCardsApplication {
 		return (args) -> {
 			// Save a game and a player
 			gameService.save(new Game("Game1"));
-			playerService.save(new PlayerDTO(0L,"Kevin", 0, 1L));
-			playerService.save(new PlayerDTO(1L,"Vince", 0, 1L));
+			playerService.save(new PlayerDTO(1L,"Kevin", 0, 1L));
+			playerService.save(new PlayerDTO(2L,"Vince", 0, 1L));
 		};
 	}
 }
