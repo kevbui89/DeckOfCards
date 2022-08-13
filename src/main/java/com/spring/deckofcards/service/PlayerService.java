@@ -1,5 +1,6 @@
 package com.spring.deckofcards.service;
 
+import com.spring.deckofcards.DTO.PlayerDTO;
 import com.spring.deckofcards.model.Player;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 public interface PlayerService {
     List<?> findAll();
     Player findById(Long id);
-    Player save(Player player);
+    Player save(PlayerDTO player);
     Player update(Long id, Player player);
     void delete(Long id);
 }
