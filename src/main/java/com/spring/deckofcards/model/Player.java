@@ -18,6 +18,7 @@ import java.util.Objects;
 @Setter
 @AllArgsConstructor
 @ToString
+@Builder
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Player implements Serializable {
 
