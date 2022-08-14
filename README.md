@@ -1,8 +1,12 @@
-# deckofcards
+# Deck Of Cards
 Spring application for a deck of cards
 
 Diagram and initial design of the cards with implementation
 https://excalidraw.com/#room=ede7923bb5ed291b2b49,lEaTM9a_ypt-aax70NTveQ 
+
+Initial template for the repository (sole purpose was to get Swagger UI setup properly and proper CORS validation)
+All other classes/packages were deleted
+https://github.com/rahul-ghadge/spring-boot-h2-crud
 
 # Description 
 This is a demo of a Spring Data JPA application that uses CRUD operations to write and 
