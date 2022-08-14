@@ -14,7 +14,7 @@ import java.util.Stack;
 @Setter
 public class Shoe {
 
-    private static final Stack<Card> deck_ = new Deck(true).getDeck();
+    private static Stack<Card> deck_ = new Deck(true).getDeck();
 
     private static HashMap<Suit,Integer> counts_ = new HashMap<>();
     // Initialized game has 13 cards of each
@@ -75,7 +75,7 @@ public class Shoe {
      * @param hands_
      * @return
      */
-    public Map<Integer, Stack<Card>> deal(Long playerId, Map<Integer, Stack<Card>> hands_) {
+    public Card deal(Long playerId, Map<Integer, Stack<Card>> hands_) {
         // Only pop if the deck has at least one card left in the deck
         if (!deck_.isEmpty()) {
             if (hands_.get(Math.toIntExact(playerId)) == null) {
@@ -86,8 +86,7 @@ public class Shoe {
                 hands_.get(Math.toIntExact(playerId)).push(deck_.get(deck_.size() - 1));
             }
             decrementCardCountForGivenSuit(deck_.get(deck_.size() - 1));
-            deck_.pop();
-            return hands_;
+            return deck_.pop();
         }
         return null;
     }

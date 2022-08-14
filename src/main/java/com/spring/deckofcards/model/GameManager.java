@@ -17,17 +17,7 @@ public class GameManager {
 
     private static Map<Integer, Stack<Card>> hands_ = new HashMap<Integer, Stack<Card>>();
 
-    private static final GameHelper helper_ = GameHelper.create();
-
-//    public static void clearHands(Long id) {
-//        Stack<Card> newHand = new Stack<>();
-//        hands_.replace(Math.toIntExact(id), newHand);
-//    }
-//
-//    public static void resetShoe(Long id) {
-//        Shoe newShoe = new Shoe();
-//        shoes_.replace(Math.toIntExact(id), newShoe);
-//    }
+    private static GameHelper helper_ = GameHelper.create();
 
     /**
      * Returns the shoe corresponding to the game ID.
@@ -64,9 +54,7 @@ public class GameManager {
      * Deals a card to the Player
      */
     public static Card deal(Long id, Long playerId) {
-        hands_ = shoes_.get(Math.toIntExact(id)).deal(playerId, hands_);
-        return hands_.get(Math.toIntExact(playerId))
-                .get(hands_.get(Math.toIntExact(playerId)).size() - 1);
+        return getShoe(id).deal(playerId, hands_);
     }
 
     /**

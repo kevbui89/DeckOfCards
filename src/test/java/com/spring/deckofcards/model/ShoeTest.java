@@ -42,8 +42,7 @@ public class ShoeTest {
 
         Map<Integer, Stack<Card>> hands = new HashMap<>();
         hands.put(0, new Stack<>());
-        Map<Integer, Stack<Card>> newHand = shoe_.deal(0L, hands);
-        Card card = newHand.get(0).get(newHand.get(0).size() - 1);
+        Card card = shoe_.deal(0L, hands);
 
         assert card != null;
         if (card.getSuit().equals(Suit.CLUBS)) {

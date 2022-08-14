@@ -78,7 +78,8 @@ public class GameController {
     public ResponseEntity<?> addDeck(@PathVariable Long id) {
         Game game = gameService_.findById(id);
         if (GameManager.getDeckLimit(id) < 10) {
-            return game == null ? ResponseEntity.unprocessableEntity().body(id) : ResponseEntity.ok(GameManager.addDeck(id));
+            return game == null ? ResponseEntity.unprocessableEntity().body(id) :
+                    ResponseEntity.ok(GameManager.addDeck(id));
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body("You cannot add more than 10 decks.");
     }
@@ -103,18 +104,6 @@ public class GameController {
                     + Objects.requireNonNull(GameManager.deal(id ,pId)).getRank().getValue());
         }
 
-        // Win condition
-//        if (p.getPoints() >= 100) {
-//            for(Player player : game.getPlayers()) {
-//                System.out.println(player.getName());
-//                player.setPoints(0);
-//                playerService_.update(player.getId(), player);
-//                GameManager.clearHands(player.getId());
-//                System.out.println(GameManager.getShoe(id).getDeck().size());
-//            }
-//            GameManager.resetShoe(p.getId());
-//            return ResponseEntity.ok().body("Player " + p.getId() + " has won the game!");
-//        }
         playerService_.update(pId, p);
         return ResponseEntity.ok(p);
     }
