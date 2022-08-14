@@ -2,7 +2,7 @@
 Spring application for a deck of cards
 
 Diagram and initial design of the cards with implementation
-https://excalidraw.com/#room=ede7923bb5ed291b2b49,lEaTM9a_ypt-aax70NTveQ 
+![Screenshot 2022-08-14 152350](https://user-images.githubusercontent.com/31741107/184551803-a5001aaf-0c7a-4c25-9053-1401c4aa7f91.png)
 
 Initial template for the repository (sole purpose was to get Swagger UI setup properly and proper CORS validation)
 All other classes/packages were deleted
