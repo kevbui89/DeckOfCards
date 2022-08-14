@@ -38,7 +38,7 @@ I wanted to get some Selenium testing done, but I could not finish the front end
 
 # Known Bugs
 There are no validations for empty strings/invalid characters when entering new game/player which can cause issues and/or prone to malicious attacks.
-The deal, add deck and get suit/card count seem to be pulling called even if the proper shoe is being called to manipulate the deck/cards.
+The deal, add deck are called even if the proper shoe is being called to manipulate the deck/cards. Hence card and suit remaining data are skewed.
 
 
 
