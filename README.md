@@ -13,8 +13,11 @@ This is a demo of a Spring Data JPA application that uses CRUD operations to wri
 fetch data from a database.  This particular example uses in-memory H2 databases.
 
 # How to run the application 
-This application uses Swagger UI to facilitate testing the RESTful functions. To run this application, import the project to an IDE (i.e. IntelliJ) and run the DeckOfCardsApplication.java class.  Once the application is booted, open a browswer and type localhost:8080.  The Swagger UI should appear and you should be able to test 
-all functions. 
+This application uses Swagger UI to facilitate testing the RESTful functions. To run this application, import the project to an IDE (i.e. IntelliJ) and run the DeckOfCardsApplication.java class.  Once the application is booted, open a browswer and type localhost:8080.  The Swagger UI should appear and you should be able to test all functions. 
+![swag](https://user-images.githubusercontent.com/31741107/184551840-646e9d92-e669-4d64-9c13-aebaffc7eef8.png)
+
+Example of a deal card function to a player:
+![deal](https://user-images.githubusercontent.com/31741107/184551885-2fc989db-0b49-4d7b-8b8f-68cafb3c9851.png)
 
 # Application Design
 The application uses Spring Data JPA with combination of H2 as a database platform.  The database can be manipulated via the application.properties file.
@@ -34,6 +37,7 @@ I wanted to get some Selenium testing done, but I could not finish the front end
 
 # Known Bugs
 There are no validations for empty strings/invalid characters when entering new game/player which can cause issues and/or prone to malicious attacks.
+The deal, add deck and get suit/card count seem to be pulling called even if the proper shoe is being called to manipulate the deck/cards.
 
 
 
