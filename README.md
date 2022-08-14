@@ -23,7 +23,7 @@ Example of a deal card function to a player:
 The application uses Spring Data JPA with combination of H2 as a database platform.  The database can be manipulated via the application.properties file.
 The player and the game are persisted to the database.  The game itself is manipulated all in memory.  If a game is shut down, all decks, hands and any other game properties are lost.  As I designed this application, I believe that it would be more beneficial as those actions would be accessed often and would impact performance if cards, hands and deck were persisted to the database.  It was a design choice to keep as much as possible in memory.  I used controllers for the player and game to persist data and manipulate game properties to send back the information as JSON to the front end.
 
-#Unit Test, Integration Test
+# Unit Test, Integration Test
 Integration tests were written for the persistance of the application.  The Game and Player CRUD operations were tested to ensure that data was properly written and fetched from the databases. 
 
 Any other game logic were either tested in Unit Tests.
