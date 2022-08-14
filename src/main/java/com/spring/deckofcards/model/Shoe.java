@@ -23,6 +23,27 @@ public class Shoe {
     private static int heartsCount_ = 13;
     private static int diamondsCount_ = 13;
 
+    private static int deckLimit_ = 0;
+
+    /**
+     * Returns the deck limit
+     * @return The deck limit
+     */
+    public int getDeckLimit() {
+        return deckLimit_;
+    }
+
+    /**
+     * Increments the deck limit
+     * Once a deck is added, it cannot be removed
+     */
+    public void incrementDeckLimit() {
+        deckLimit_++;
+    }
+
+    /**
+     * Initialize the shot with a shuffled deck
+     */
     public Shoe () {
         counts_ = init();
     }

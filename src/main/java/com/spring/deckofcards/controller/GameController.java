@@ -64,22 +64,21 @@ public class GameController {
     @Operation(summary = "Returns the count for each suit in the deck")
     @GetMapping("/{id}/suitcount")
     public ResponseEntity<?> getSuitCount(@PathVariable Long id) {
-        //return ResponseEntity.ok(GameManager.getRemainingCardInDeckPerSuit());
-        return ResponseEntity.ok(GameManager.getSuitCount());
+        return ResponseEntity.ok(GameManager.getSuitCount(id));
     }
 
     @Operation(summary = "Shuffles the deck of game with the corresponding ID")
     @GetMapping("/{id}/shuffle")
     public ResponseEntity<?> shuffle(@PathVariable Long id) {
-        return ResponseEntity.ok(GameManager.shuffle());
+        return ResponseEntity.ok(GameManager.shuffle(id));
     }
 
     @Operation(summary = "Adds a deck to a game")
     @GetMapping("/{id}/adddeck")
     public ResponseEntity<?> addDeck(@PathVariable Long id) {
         Game game = gameService_.findById(id);
-        if (GameManager.getDeckLimit() < 10) {
-            return game == null ? ResponseEntity.unprocessableEntity().body(id) : ResponseEntity.ok(GameManager.addDeck());
+        if (GameManager.getDeckLimit(id) < 10) {
+            return game == null ? ResponseEntity.unprocessableEntity().body(id) : ResponseEntity.ok(GameManager.addDeck(id));
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body("You cannot add more than 10 decks.");
     }
@@ -99,10 +98,23 @@ public class GameController {
     public ResponseEntity<?> dealCard(@PathVariable Long id, @PathVariable Long pId) {
         Game game = gameService_.findById(id);
         Player p = playerService_.findById(pId);
-        if (!GameManager.getDeck_().isEmpty()) {
+        if (!GameManager.getDeck(id).isEmpty()) {
             p.setPoints(p.getPoints()
-                    + Objects.requireNonNull(GameManager.deal(pId)).getRank().getValue());
+                    + Objects.requireNonNull(GameManager.deal(id ,pId)).getRank().getValue());
         }
+
+        // Win condition
+//        if (p.getPoints() >= 100) {
+//            for(Player player : game.getPlayers()) {
+//                System.out.println(player.getName());
+//                player.setPoints(0);
+//                playerService_.update(player.getId(), player);
+//                GameManager.clearHands(player.getId());
+//                System.out.println(GameManager.getShoe(id).getDeck().size());
+//            }
+//            GameManager.resetShoe(p.getId());
+//            return ResponseEntity.ok().body("Player " + p.getId() + " has won the game!");
+//        }
         playerService_.update(pId, p);
         return ResponseEntity.ok(p);
     }
@@ -110,7 +122,7 @@ public class GameController {
     @Operation(summary = "Get the remaining card count from the deck")
     @GetMapping("/{id}/cardcount")
     public ResponseEntity<?> remainingCardCount(@PathVariable Long id) {
-        return ResponseEntity.ok().body(GameManager.getCardCount());
+        return ResponseEntity.ok().body(GameManager.getCardCount(id));
     }
 
     @Operation(summary = "Get the player points")

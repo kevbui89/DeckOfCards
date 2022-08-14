@@ -13,28 +13,40 @@ import java.util.*;
 @Getter
 public class GameManager {
 
+    private static HashMap<Integer, Shoe> shoes_ = new HashMap<>();
+
     private static Map<Integer, Stack<Card>> hands_ = new HashMap<Integer, Stack<Card>>();
 
     private static final GameHelper helper_ = GameHelper.create();
 
-    private static int deckLimit_ = 0;
-
-    private static final Shoe shoe_ = new Shoe();
+//    public static void clearHands(Long id) {
+//        Stack<Card> newHand = new Stack<>();
+//        hands_.replace(Math.toIntExact(id), newHand);
+//    }
+//
+//    public static void resetShoe(Long id) {
+//        Shoe newShoe = new Shoe();
+//        shoes_.replace(Math.toIntExact(id), newShoe);
+//    }
 
     /**
-     * Returns the shoe.
-     * @return The shoe
+     * Returns the shoe corresponding to the game ID.
+     * @param gameId The game ID
+     * @return The Shoe of the passed ID
      */
-    public static Shoe getShoe() {
-        return shoe_;
+    public static Shoe getShoe(Long gameId) {
+        if (shoes_.get(Math.toIntExact(gameId)) == null) {
+            shoes_.put(Math.toIntExact(gameId), new Shoe());
+        }
+        return shoes_.get(Math.toIntExact(gameId));
     }
 
-    public static Stack<Card> getDeck_() {
-        return shoe_.getDeck();
+    public static Stack<Card> getDeck(Long id) {
+        return getShoe(id).getDeck();
     }
 
-    public static int getDeckLimit() {
-        return deckLimit_;
+    public static int getDeckLimit(Long id) {
+        return getShoe(id).getDeckLimit();
     }
 
     /**
@@ -42,17 +54,17 @@ public class GameManager {
      * If you add a deck, you will add 52 cards to the current deck.
      * It is also assumed the new added deck will be shuffled.
      */
-    public static int addDeck() {
-        deckLimit_++;
-        shoe_.addDeck();
-        return deckLimit_;
+    public static int addDeck(Long id) {
+        getShoe(id).incrementDeckLimit();
+        getShoe(id).addDeck();
+        return getShoe(id).getDeckLimit();
     }
 
     /**
      * Deals a card to the Player
      */
-    public static Card deal(Long playerId) {
-        hands_ = shoe_.deal(playerId, hands_);
+    public static Card deal(Long id, Long playerId) {
+        hands_ = shoes_.get(Math.toIntExact(id)).deal(playerId, hands_);
         return hands_.get(Math.toIntExact(playerId))
                 .get(hands_.get(Math.toIntExact(playerId)).size() - 1);
     }
@@ -71,18 +83,9 @@ public class GameManager {
     /**
      * Shuffles deck of cards
      */
-    public static String shuffle() {
-        DeckUtil.shuffle(shoe_.getDeck());
+    public static String shuffle(Long id) {
+        DeckUtil.shuffle(getShoe(id).getDeck());
         return "Deck shuffled";
-    }
-
-    /**
-     * Returns a shuffled deck
-     * @return
-     */
-    public static Stack<Card> getShuffledDeck() {
-        shuffle();
-        return shoe_.getDeck();
     }
 
     /**
@@ -108,8 +111,8 @@ public class GameManager {
      * Returns a hashmap with all the card counts in rank value.
      * @return The hashmmap with all card counts
      */
-    public static LinkedHashMap<String, Integer> getCardCount() {
-        return helper_.calculateAllCardCount(shoe_.getDeck());
+    public static LinkedHashMap<String, Integer> getCardCount(Long id) {
+        return helper_.calculateAllCardCount(getShoe(id).getDeck());
     }
 
     /**
@@ -117,7 +120,7 @@ public class GameManager {
      *
      * @return The hashmap of the remaining cards in the deck per suit
      */
-    public static HashMap<Suit,Integer> getSuitCount() {
-        return Shoe.getSuitCount();
+    public static HashMap<Suit,Integer> getSuitCount(Long id) {
+        return getShoe(id).getSuitCount();
     }
 }
