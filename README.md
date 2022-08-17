@@ -36,6 +36,7 @@ I wanted to get some Selenium testing done, but I could not finish the front end
 - The front end was not fully complete and functional, this would be the next step to complete the front-end. (in a separate repository).
 - In terms of the game itself, it goes until you cannot add more decks, or there are no more cards, there could be a win condition set in place to prevent this.
 - Game rules could be implemented for future enhancements.
+- A logging system for the end user and dev/support team.
 
 # Known Bugs
 There are no validations for empty strings/invalid characters when entering new game/player which can cause issues and/or prone to malicious attacks.
