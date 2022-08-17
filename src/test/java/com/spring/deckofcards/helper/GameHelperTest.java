@@ -18,9 +18,9 @@ public class GameHelperTest {
     public void givenHand_calculateScoreBoard_ReturnScorePerPlayer() throws Exception {
         HashMap<Integer, Stack<Card>> hands = new HashMap<>();
         Stack<Card> hand = new Stack<>();
-        hand.push(new Card(Rank.ACE, Suit.HEARTS));
-        hand.push(new Card(Rank.QUEEN, Suit.CLUBS));
-        hand.push(new Card(Rank.KING, Suit.CLUBS));
+        hand.push(Card.getCard(Rank.ACE, Suit.HEARTS));
+        hand.push(Card.getCard(Rank.QUEEN, Suit.CLUBS));
+        hand.push(Card.getCard(Rank.KING, Suit.CLUBS));
         hands.put(0, hand);
 
         Map<Integer, Integer> testScore = helper_.calculateScoreBoard(hands);

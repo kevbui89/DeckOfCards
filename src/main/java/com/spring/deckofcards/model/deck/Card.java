@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.Objects;
 
 @Builder
-@AllArgsConstructor
 @Getter
 public class Card implements Comparable<Card> {
 
@@ -39,7 +38,7 @@ public class Card implements Comparable<Card> {
      * @param suit The suit of the card
      * @return The card from the cache
      */
-    static Card getCard(final Rank rank, final Suit suit) {
+    public static Card getCard(final Rank rank, final Suit suit) {
         final Card card = CARD_CACHE.get(cardKey(rank, suit));
         if (card != null) {
             return card;
